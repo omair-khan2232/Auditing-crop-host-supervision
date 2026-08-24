@@ -1,0 +1,5 @@
+Ninety Swin Small runs tested host supervision on three benchmarks
+All outcomes on the benchmark with 43 classes met equivalence criteria
+Agreement losses did not improve all datasets and metrics
+Predicted host masking enforced agreement with little accuracy change
+Temperature scaling reduced ECE on the hardest benchmark

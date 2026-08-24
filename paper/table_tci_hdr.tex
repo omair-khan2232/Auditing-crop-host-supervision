@@ -1,0 +1,29 @@
+\begin{table}[H]
+\centering
+\caption{Complete head-disagreement and taxonomic consistency inference (TCI)
+results; TCI was implemented as predicted-host masking.
+Host accuracy and pre-TCI head disagreement rate (HDR) are percentages reported
+as mean $\pm$ standard deviation over matched final-protocol runs. Deltas are
+TCI minus standard inference in percentage points; CHER denotes cross-host
+error rate.}
+\label{tab:s-tci-hdr-full}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrrrrr}
+\toprule
+Dataset & Configuration & Seeds & Host accuracy & Pre-TCI HDR & $\Delta$ accuracy & $\Delta$ macro-F1 & $\Delta$ CHER \\
+\midrule
+NPD-Rice-COCO-43 & Dual, no penalty & 10 & $99.977 \pm 0.003$ & $0.004 \pm 0.006$ & $0.001 \pm 0.003$ & $0.001 \pm 0.003$ & $-0.001 \pm 0.003$ \\
+NPD-Rice-COCO-43 & Dual + MAE & 5 & $99.976 \pm 0.005$ & $0.000 \pm 0.000$ & $0.000 \pm 0.000$ & $0.000 \pm 0.000$ & $0.000 \pm 0.000$ \\
+NPD-Rice-COCO-43 & Dual + $\mathrm{KL}(q\|p^h)$ & 5 & $99.976 \pm 0.005$ & $0.002 \pm 0.005$ & $0.002 \pm 0.005$ & $0.002 \pm 0.004$ & $-0.002 \pm 0.005$ \\
+\midrule
+MultiCrop-88 & Dual, no penalty & 10 & $99.716 \pm 0.025$ & $0.102 \pm 0.026$ & $0.013 \pm 0.033$ & $0.033 \pm 0.116$ & $-0.022 \pm 0.037$ \\
+MultiCrop-88 & Dual + MAE & 5 & $99.709 \pm 0.035$ & $0.072 \pm 0.027$ & $-0.005 \pm 0.020$ & $-0.009 \pm 0.070$ & $0.008 \pm 0.020$ \\
+MultiCrop-88 & Dual + $\mathrm{KL}(q\|p^h)$ & 5 & $99.745 \pm 0.028$ & $0.067 \pm 0.011$ & $0.018 \pm 0.030$ & $0.100 \pm 0.147$ & $-0.021 \pm 0.023$ \\
+\midrule
+Agri-Foundation-145k & Dual, no penalty & 10 & $96.999 \pm 0.047$ & $1.144 \pm 0.052$ & $0.016 \pm 0.036$ & $0.169 \pm 0.376$ & $-0.137 \pm 0.050$ \\
+Agri-Foundation-145k & Dual + MAE & 5 & $96.892 \pm 0.113$ & $1.148 \pm 0.044$ & $-0.002 \pm 0.039$ & $0.079 \pm 0.207$ & $-0.100 \pm 0.044$ \\
+Agri-Foundation-145k & Dual + $\mathrm{KL}(q\|p^h)$ & 5 & $97.018 \pm 0.035$ & $0.861 \pm 0.047$ & $-0.014 \pm 0.046$ & $-0.003 \pm 0.266$ & $-0.052 \pm 0.031$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

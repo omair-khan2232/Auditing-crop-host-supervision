@@ -1,0 +1,48 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# Training artifacts that should not be committed
+checkpoints/
+checkpoint*/
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.log
+training_logs*.txt
+runs/
+wandb/
+
+# Local datasets and extracted image archives
+datasets/
+data/
+raw_data/
+*_dataset*/
+Plant_dataset*/
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+
+# LaTeX build outputs
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.spl
+*.synctex.gz
+
+# OS/editor noise
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/

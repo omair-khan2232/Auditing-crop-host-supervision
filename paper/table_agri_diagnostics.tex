@@ -1,0 +1,37 @@
+\begin{table*}[htbp]
+\centering
+\caption{Exploratory diagnostics for Agri-Foundation-145k. Panel A reports
+within-bin macro-F1 over 10 paired seeds, where bins are defined by training
+images per class. Panel B applies ground-truth-host oracle masking to fixed condition
+logits as a non-deployable oracle. Differences are dual minus flat in Panel A
+and oracle minus standard in Panel B. Panel A intervals are paired 95\%
+confidence intervals across seeds; Panel B reports seed means.}
+\label{tab:agri-diagnostics}
+\small
+\textbf{Panel A: training-frequency strata}\\[2pt]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrr}
+\toprule
+Training images/class & Classes & Training images & Flat macro-F1 (\%) & Dual macro-F1 (\%) & Difference (95\% CI), points\\
+\midrule
+1--25 & 42 & 610 & 30.071 & 30.942 & 0.871 [$-1.677$, 3.419]\\
+26--100 & 81 & 4,181 & 52.528 & 53.128 & 0.600 [$-0.174$, 1.374]\\
+101--500 & 42 & 7,344 & 75.327 & 76.181 & 0.854 [0.533, 1.176]\\
+$>500$ & 50 & 80,436 & 95.745 & 95.780 & 0.035 [$-0.095$, 0.164]\\
+\bottomrule
+\end{tabular}%
+}
+
+\vspace{6pt}
+\textbf{Panel B: ground-truth-host oracle}\\[2pt]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Configuration & Standard accuracy & Oracle accuracy & $\Delta$ accuracy & Standard macro-F1 & Oracle macro-F1 & $\Delta$ macro-F1\\
+\midrule
+Flat & 92.151 & 94.445 & 2.294 & 62.645 & 73.246 & 10.601\\
+Dual, no penalty & 92.271 & 94.456 & 2.184 & 63.216 & 73.448 & 10.232\\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\caption{Primary-checkpoint probability quality before and after
+validation-only temperature scaling. Arrows denote raw $\rightarrow$
+temperature-scaled values; entries are means over 10 seeds.}
+\label{tab:critical-calibration}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccccc}
+\toprule
+Dataset & Configuration & Seeds & ECE (\%) & NLL & Brier & AURC \\
+\midrule
+NPD-Rice-COCO-43 & Flat & 10 & 0.396$\rightarrow$0.192 & 0.0264$\rightarrow$0.0209 & 0.0100$\rightarrow$0.0096 & 0.0002$\rightarrow$0.0002 \\
+NPD-Rice-COCO-43 & Dual, no penalty & 10 & 0.396$\rightarrow$0.220 & 0.0268$\rightarrow$0.0210 & 0.0101$\rightarrow$0.0095 & 0.0002$\rightarrow$0.0002 \\
+MultiCrop-88 & Flat & 10 & 1.694$\rightarrow$0.641 & 0.1314$\rightarrow$0.0883 & 0.0403$\rightarrow$0.0371 & 0.0014$\rightarrow$0.0016 \\
+MultiCrop-88 & Dual, no penalty & 10 & 1.629$\rightarrow$0.603 & 0.1275$\rightarrow$0.0854 & 0.0388$\rightarrow$0.0360 & 0.0013$\rightarrow$0.0014 \\
+Agri-Foundation-145k & Flat & 10 & 5.446$\rightarrow$1.701 & 0.4749$\rightarrow$0.3114 & 0.1300$\rightarrow$0.1139 & 0.0072$\rightarrow$0.0073 \\
+Agri-Foundation-145k & Dual, no penalty & 10 & 5.378$\rightarrow$1.560 & 0.4569$\rightarrow$0.2971 & 0.1278$\rightarrow$0.1114 & 0.0071$\rightarrow$0.0071 \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

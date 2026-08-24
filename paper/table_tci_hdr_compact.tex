@@ -1,0 +1,30 @@
+\begin{table*}[t]
+\centering
+\caption{Head disagreement under standard inference and the effect of
+taxonomic consistency inference (TCI), implemented as predicted-host masking.
+Values are mean $\pm$ standard deviation over
+matched runs. Pre-TCI HDR is a percentage; deltas are TCI minus standard
+inference in percentage points. The full host-accuracy and macro-F1 results
+are provided in Supplementary Table S2.}
+\label{tab:tci-hdr}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrrr}
+\toprule
+Dataset & Configuration & Seeds & Pre-TCI HDR & $\Delta$ accuracy & $\Delta$ CHER \\
+\midrule
+NPD-Rice-COCO-43 & Dual, no penalty & 10 & $0.004 \pm 0.006$ & $0.001 \pm 0.003$ & $-0.001 \pm 0.003$ \\
+NPD-Rice-COCO-43 & Dual + MAE & 5 & $0.000 \pm 0.000$ & $0.000 \pm 0.000$ & $0.000 \pm 0.000$ \\
+NPD-Rice-COCO-43 & Dual + $\mathrm{KL}(q\|p^h)$ & 5 & $0.002 \pm 0.005$ & $0.002 \pm 0.005$ & $-0.002 \pm 0.005$ \\
+\midrule
+MultiCrop-88 & Dual, no penalty & 10 & $0.102 \pm 0.026$ & $0.013 \pm 0.033$ & $-0.022 \pm 0.037$ \\
+MultiCrop-88 & Dual + MAE & 5 & $0.072 \pm 0.027$ & $-0.005 \pm 0.020$ & $0.008 \pm 0.020$ \\
+MultiCrop-88 & Dual + $\mathrm{KL}(q\|p^h)$ & 5 & $0.067 \pm 0.011$ & $0.018 \pm 0.030$ & $-0.021 \pm 0.023$ \\
+\midrule
+Agri-Foundation-145k & Dual, no penalty & 10 & $1.144 \pm 0.052$ & $0.016 \pm 0.036$ & $-0.137 \pm 0.050$ \\
+Agri-Foundation-145k & Dual + MAE & 5 & $1.148 \pm 0.044$ & $-0.002 \pm 0.039$ & $-0.100 \pm 0.044$ \\
+Agri-Foundation-145k & Dual + $\mathrm{KL}(q\|p^h)$ & 5 & $0.861 \pm 0.047$ & $-0.014 \pm 0.046$ & $-0.052 \pm 0.031$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

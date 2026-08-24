@@ -1,0 +1,26 @@
+\begin{table*}[htbp]
+\centering
+\caption{Sensitivity of the Holm-adjusted equivalence decisions to the
+absolute margin. Each column applies Holm adjustment across the same nine
+dataset and metric decisions. The $\pm0.25$-point column is the predeclared
+primary analysis; the other columns are post-hoc sensitivity checks.}
+\label{tab:equivalence-sensitivity}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccc}
+\toprule
+Dataset & Metric & $\pm0.10$ points & $\pm0.25$ points & $\pm0.50$ points\\
+\midrule
+NPD-Rice-COCO-43 & Accuracy & Equivalent & Equivalent & Equivalent\\
+NPD-Rice-COCO-43 & Macro-F1 & Not established & Equivalent & Equivalent\\
+NPD-Rice-COCO-43 & CHER & Equivalent & Equivalent & Equivalent\\
+MultiCrop-88 & Accuracy & Not established & Equivalent & Equivalent\\
+MultiCrop-88 & Macro-F1 & Not established & Not established & Not established\\
+MultiCrop-88 & CHER & Equivalent & Equivalent & Equivalent\\
+Agri-Foundation-145k & Accuracy & Not established & Not established & Equivalent\\
+Agri-Foundation-145k & Macro-F1 & Not established & Not established & Not established\\
+Agri-Foundation-145k & CHER & Not established & Not established & Equivalent\\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

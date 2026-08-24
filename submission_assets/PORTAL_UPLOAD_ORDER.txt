@@ -1,0 +1,17 @@
+IPA portal upload order
+
+DO NOT UPLOAD until AUTHOR_ACTION_REQUIRED.md has been completed and all PDFs
+have been rebuilt.
+
+1. Manuscript.pdf: manuscript file
+2. LaTeX_Source.zip: editable manuscript and supplementary source
+3. Supplementary_Material.pdf: supplementary material
+4. Highlights.docx: editable highlights
+5. Graphical_Abstract.tiff or Graphical_Abstract.pdf: graphical abstract
+6. Cover_Letter.pdf: cover letter
+7. Figure_Captions.txt: separate figure captions if requested
+8. Declarations.txt: competing-interest and AI-use text if requested
+9. Reproducibility_Materials.zip or its permanent DOI: data/code supplement
+
+After upload, open every converted file in the portal and confirm the title,
+author order, equations, figures, supplement, and selected file versions.

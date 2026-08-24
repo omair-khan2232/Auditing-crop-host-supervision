@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\caption{Fixed-protocol test performance over paired seeds. Values are
+percentages reported as mean $\pm$ standard deviation.}
+\label{tab:critical-core-results}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcccc}
+\toprule
+Dataset & Configuration & Seeds & Accuracy & Macro-F1 & CHER \\
+\midrule
+NPD-Rice-COCO-43 & Flat & 10 & $99.409 \pm 0.069$ & $98.538 \pm 0.120$ & $0.038 \pm 0.018$ \\
+NPD-Rice-COCO-43 & Dual, no penalty & 10 & $99.398 \pm 0.031$ & $98.483 \pm 0.063$ & $0.024 \pm 0.005$ \\
+MultiCrop-88 & Flat & 10 & $97.657 \pm 0.136$ & $95.138 \pm 0.310$ & $0.336 \pm 0.040$ \\
+MultiCrop-88 & Dual, no penalty & 10 & $97.708 \pm 0.098$ & $95.333 \pm 0.319$ & $0.306 \pm 0.043$ \\
+Agri-Foundation-145k & Flat & 10 & $92.151 \pm 0.164$ & $62.645 \pm 0.640$ & $3.321 \pm 0.097$ \\
+Agri-Foundation-145k & Dual, no penalty & 10 & $92.271 \pm 0.118$ & $63.216 \pm 0.791$ & $3.138 \pm 0.076$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

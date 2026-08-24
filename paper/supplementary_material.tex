@@ -1,0 +1,260 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{url}
+
+\setlength{\emergencystretch}{2em}
+\renewcommand{\thetable}{S\arabic{table}}
+\journal{Information Processing in Agriculture}
+
+\begin{document}
+\begin{frontmatter}
+
+\title{Supplementary material for: Auditing crop host supervision in Swin models for condition recognition across multiple crops: evidence from 90 controlled runs}
+
+\author[inst1]{Muhammad Omair Khan}
+\author[inst1]{Muhammad Ahmad}
+\author[inst1]{MD Ariful Islam Mozumder}
+\author[inst2]{Hee-Cheol Kim}
+\address[inst1]{Institute of Digital Anti-Aging Healthcare, Inje University,
+Gimhae 50834, Republic of Korea.}
+\address[inst2]{Department of Computer Science and Engineering, Inje University,
+Gimhae 50834, Republic of Korea.}
+
+\end{frontmatter}
+
+\section*{S1. Experimental identity and computing environment}
+
+The final study matrix contained 90 completed Swin-S fine-tuning runs: 10
+paired flat and dual runs per dataset and five matched runs per dataset for each
+of the MAE and $\mathrm{KL}(q\|p^h)$ consistency variants. The primary seeds
+were 2026--2035; the penalty seeds were 2026--2030. Every retained run completed
+30 epochs and used validation macro-F1 for checkpoint selection.
+
+The pretrained backbone was identified by the following records:
+\begin{center}
+\small
+\texttt{swin\_small\_patch4\_window7\_224.ms\_in22k\_ft\_in1k}\\
+Hugging Face revision: \\
+\texttt{221ee757828e4772df860bd42ef476de78dd5fc6}\\
+Cached \texttt{model.safetensors} SHA-256: \\
+\texttt{e17adf843764761f138cb8cab081d9a37824db4a948c0082c7af7f0092d19581}
+\end{center}
+The supplied protocol records Python 3.11.14, PyTorch 2.9.0+cu129, and an NVIDIA
+GeForce RTX 5070. Training used CUDA automatic mixed precision with gradient
+scaling, while selected model weights and final primary logits were stored in
+FP32.
+
+\begin{table}[H]
+\centering
+\caption{Locked split-manifest identities recorded by the experiment protocol.}
+\label{tab:s1-manifests}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ll}
+\toprule
+Dataset & SHA-256\\
+\midrule
+NPD-Rice-COCO-43 &
+\texttt{de4fd19299c735a4ab939d67288f01757822a671cfb8d6c41b95f71d5fdd34ae}\\
+MultiCrop-88 &
+\texttt{b881f3e7feff8006f03a4d1e0066abf88cddda79dbee9295be3157cb11842231}\\
+Agri-Foundation-145k &
+\texttt{ae87397218c8124721117e401291f10a3426ec0f94791b155a24fe3245c10732}\\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+A permanent reproducibility repository is available in the
+\href{https://github.com/omair-khan2232/Auditing-crop-host-supervision}{GitHub
+repository}. The repository preserves the protocol, manifest and taxonomy identities,
+run-completion records, derived seed-level metrics, statistical outputs, and
+figure-generation scripts.
+
+\section*{S2. Dataset construction and integrity details}
+
+\paragraph{NPD-Rice-COCO-43.}
+The 93,388 paths represented 93,362 unique SHA-256 hashes and 51,758 source
+families. The local composite comprised 87,425 paths from the New Plant
+Diseases collection, 3,355 Rice Leafs images, and 2,608 selected COCO images
+used as a supervised background class. Twenty-six duplicate-hash clusters were
+retained, but every exact match and every identified augmentation family was
+assigned wholly to one split. The final split contained 74,700 training, 9,355
+validation, and 9,333 test paths; the test set contained 5,171 source families.
+Every class occurred in every split. Assignment-group, source-family, and exact
+SHA-256 intersections were zero for every pair of partitions.
+
+\paragraph{MultiCrop-88.}
+The input inventory contained 79,086 paths. We removed 1,254 redundant paths
+from 1,232 same-label exact-hash clusters and excluded all 62 paths from 29
+cross-label conflict clusters. The 77,770 retained hashes were unique. The
+resulting split contained 62,214 training, 7,787 validation, and 7,769 test
+images, with all 88 classes represented in every partition. The local class
+vocabulary strongly matches the published 91-class composite of Ahamed et al.
+after exclusion of three mulberry classes, but the original assembly manifest
+and licenses were not supplied. The collection is therefore described as a
+local derivative. Its manifest \texttt{family\_id} is an exact-hash assignment
+unit, not a separately verified acquisition family.
+
+\paragraph{Agri-Foundation-145k.}
+The public Zenodo record reports 144,751 images in 215 classes. The locked local
+derivative contained 144,752 paths: a development pool later divided into
+92,571 training and 23,140 validation images, plus a separate 29,041-image test
+set. The one-path difference is a synthetic $10\times10$ file named
+\texttt{dummy.jpg} in class
+\texttt{cabbage\_cabbage\_black\_rot\_bing\_-\_copy}. It was the only
+development support for that joint class. The file is not an observed plant
+image and must not be interpreted as biological evidence. The exact-hash audit
+found no development-to-test match. All 215 classes occurred in training and test;
+212 occurred in validation.
+
+The locked results retain the placeholder-supported class so that every
+configuration is evaluated on the experiment that was actually run. Because all
+models use the same derivative, seed-paired architecture comparisons remain
+case matched. Nevertheless, the class's absolute F1 and its contribution to
+215-class macro-F1 are not representative of ordinary learned performance. The
+source archive contains a script named \texttt{ds2\_placeholder\_sensitivity.py}
+that recomputes accuracy and macro-F1 after excluding this class. The numerical
+outputs of that script were not present in the supplied archive and are
+therefore not reported or inferred here. They should be generated, checked, and
+deposited before submission.
+
+Exact byte hashing cannot detect relationships created only by resizing,
+recompression, cropping, color adjustment, or other transformations. No
+perceptual-hash or embedding-similarity overlap audit was available for
+MultiCrop-88 or Agri-Foundation-145k. The supported claim is therefore exact
+identity control, plus source-family control only for NPD-Rice-COCO-43.
+
+\section*{S3. Pairing, equivalence decisions, and event-scale context}
+
+Flat and no-penalty dual models used identical seed sets (2026--2035) within
+each dataset. The primary equivalence margin was $\pm0.25$ percentage points.
+A dataset and metric result was considered practically equivalent only when its
+complete 90\% TOST interval lay inside the margin and the Holm-adjusted decision
+passed at $\alpha=0.05$ across the nine primary decisions. Five cells met both
+requirements: accuracy, macro-F1, and CHER on NPD-Rice-COCO-43, plus accuracy
+and CHER on MultiCrop-88.
+
+The complete nine-decision Holm correction was repeated post hoc at
+$\pm0.10$ and $\pm0.50$ points. At the stricter margin,
+NPD-Rice-COCO-43 accuracy and CHER and MultiCrop-88 CHER remained
+equivalent. At $\pm0.50$ points, Agri-Foundation-145k accuracy and CHER also
+met equivalence, while macro-F1 remained unresolved on MultiCrop-88 and
+Agri-Foundation-145k. These analyses show which conclusions are robust to the
+choice of negligible-effect threshold.
+
+Mean flat/dual cross-host event counts were 3.5/2.2 of 9,333 test images,
+26.1/23.8 of 7,769 images, and 964.5/911.4 of 29,041 images for the three
+datasets. A 0.10-point CHER margin corresponds to 9.3, 7.8, and 29.0 events; a
+0.25-point margin corresponds to 23.3, 19.4, and 72.6 events; and a 0.50-point
+margin corresponds to 46.7, 38.8, and 145.2 events. All intervals characterize
+between-seed variation on fixed test sets, not sampling variation over new
+populations.
+
+\section*{S4. Family-balanced NPD-Rice-COCO-43 sensitivity analysis}
+
+Each NPD-Rice-COCO-43 test image was assigned weight equal to the inverse of
+its source-family size, giving every one of the 5,171 test families total weight
+one. Flat/dual family-balanced means were 99.033/99.020\% accuracy,
+98.522/98.491\% macro-F1, and 0.0216/0.0107\% CHER. Paired dual-minus-flat
+effects were $-0.0129$ points (95\% CI $[-0.0829,0.0571]$), $-0.0307$ points
+($[-0.1352,0.0739]$), and $-0.0110$ points ($[-0.0241,0.0022]$), respectively.
+The near-null result therefore persisted when each original family, rather than
+each augmented path, had equal total influence.
+
+\section*{S5. Consistency-penalty implementation and validation}
+
+The secondary block contained five matched seeds for the no-penalty dual model,
+MAE, and $\mathrm{KL}(q\|p^h)$ on each dataset. The dual objective used
+condition cross-entropy plus host cross-entropy with $\alpha=1$. Both
+consistency terms used $\lambda=1$. MAE was averaged over samples and host
+categories. KL was implemented as $D_{\mathrm{KL}}(q\|p^h)$, summed over host
+categories and averaged over samples, with
+$\epsilon=\texttt{torch.finfo}(p^h.\texttt{dtype}).\texttt{eps}$ in both
+logarithms. The condition-implied host distribution $q$ was not detached, so
+the consistency gradient passed through both the condition and host branches.
+
+The available validators checked run completion, 30-row training histories,
+selected checkpoints, split identities, and saved test predictions. Stored best
+validation macro-F1 values were checked against the corresponding histories,
+and accuracy, macro-F1, and CHER were reconstructed from saved labels and
+standard predictions where available. The fixed unit coefficients were not
+selected from locked-test performance.
+
+\section*{S6. Complete head-disagreement and TCI results}
+
+HDR compares the host implied by the condition argmax with the direct host-head
+argmax. TCI was implemented by masking condition classes to the host predicted
+by the direct host head. The operation reduced post-TCI HDR to zero in every
+one of the 60 dual-head runs by construction. Table~\ref{tab:s-tci-hdr-full}
+reports the complete configuration-level means. Flat runs are absent because
+they have no independent host prediction.
+
+\input{table_tci_hdr.tex}
+
+For the 10 no-penalty Agri-Foundation-145k dual runs, TCI changed a mean of
+332.3 predictions per seed. Among those disagreements, the host head alone
+matched the labeled host in 38.7\%, the condition-implied host alone matched it
+in 26.8\%, and both were wrong in 34.5\%. TCI gained 79.1 and lost 74.4 correct
+top-1 decisions per seed, leaving a mean net gain of 4.7 cases.
+
+\section*{S7. Long-tail, host-level, oracle, and calibration evidence}
+
+The 215 Agri-Foundation-145k classes were grouped by training support into
+1--25, 26--100, 101--500, and more than 500 images. Mean dual-minus-flat
+within-stratum macro-F1 changes were 0.871, 0.600, 0.854, and 0.035 points,
+respectively. Only the 101--500 stratum had a paired 95\% interval wholly above
+zero. These comparisons are exploratory and were not multiplicity adjusted.
+The largest positive and negative class changes generally occurred in classes
+with single-digit test support.
+
+Labeled-host oracle masking was applied to fixed condition logits without
+retraining. It increased mean accuracy by 2.294 points for the flat model and
+2.184 points for the dual model; macro-F1 increased by 10.601 and 10.232 points,
+respectively. The oracle is non-deployable and sets CHER to zero by construction.
+It estimates the error removable by perfect host information rather than the
+performance of a practical host sensor.
+
+For every primary flat and dual checkpoint, one temperature was fitted only on
+validation logits and then applied to locked-test logits. Temperature scaling
+reduced ECE, NLL, and summed multiclass Brier score in all six
+ dataset and configuration cells. AURC changed little, as expected for a monotonic
+single-temperature transformation that largely preserves confidence ranking.
+
+\section*{S8. Repository contents required before submission}
+
+The
+\href{https://github.com/omair-khan2232/Auditing-crop-host-supervision}{permanent
+repository} contains,
+at minimum:
+\begin{itemize}
+  \item exact split manifests, ordered class lists, condition-to-host mappings,
+  and their SHA-256 identities;
+  \item the frozen experiment protocol, environment record, and run-completion
+  metadata for all 90 runs;
+  \item seed-level primary metrics and paired differences, TOST/Holm outputs,
+  margin-sensitivity results, and CHER event-count calculations;
+  \item family-balanced, penalty, HDR/TCI, disagreement-decomposition,
+  long-tail, host-level, labeled-host oracle, calibration, and risk-coverage
+  outputs;
+  \item the executed Agri-Foundation-145k placeholder-class sensitivity
+  results, including the audit record for the $10\times10$ file;
+  \item scripts used to train models, validate runs, regenerate tables and
+  figures, and recompute checksums; and
+  \item a concise README that maps every manuscript table and figure to its
+  generating files and command.
+\end{itemize}
+
+The supplied archive contains source code and manuscript assets but does not
+contain every machine-readable result file named in earlier draft notes.
+Accordingly, this supplementary document describes only evidence supported by
+the supplied text, tables, figures, configuration files, and scripts; it does
+not claim that missing repository artifacts are already attached.
+
+\end{document}

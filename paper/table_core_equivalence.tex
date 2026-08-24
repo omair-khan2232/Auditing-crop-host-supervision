@@ -1,0 +1,24 @@
+\begin{table*}[t]
+\centering
+\caption{Paired equivalence analysis for dual-head minus flat performance. All
+differences and intervals are percentage points; the predeclared margin is
+$\pm0.25$ percentage points.}
+\label{tab:critical-equivalence}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcccc}
+\toprule
+Dataset & Metric & Mean difference & 95\% CI & 90\% TOST CI & Holm decision \\
+\midrule
+NPD-Rice-COCO-43 & Accuracy & -0.011 & [-0.065, 0.043] & [-0.054, 0.033] & Equivalent ($p_{\mathrm{Holm}}=1.20\times10^{-5}$) \\
+NPD-Rice-COCO-43 & Macro-F1 & -0.054 & [-0.151, 0.043] & [-0.133, 0.025] & Equivalent ($p_{\mathrm{Holm}}=0.00413$) \\
+NPD-Rice-COCO-43 & CHER & -0.014 & [-0.028, 0.000] & [-0.025, -0.003] & Equivalent ($p_{\mathrm{Holm}}=1.32\times10^{-10}$) \\
+MultiCrop-88 & Accuracy & 0.050 & [-0.049, 0.150] & [-0.030, 0.131] & Equivalent ($p_{\mathrm{Holm}}=0.00413$) \\
+MultiCrop-88 & Macro-F1 & 0.194 & [-0.120, 0.509] & [-0.061, 0.450] & Not established ($p_{\mathrm{Holm}}=0.699$) \\
+MultiCrop-88 & CHER & -0.030 & [-0.063, 0.003] & [-0.056, -0.003] & Equivalent ($p_{\mathrm{Holm}}=4.32\times10^{-7}$) \\
+Agri-Foundation-145k & Accuracy & 0.121 & [-0.018, 0.259] & [0.009, 0.232] & Not established ($p_{\mathrm{Holm}}=0.126$) \\
+Agri-Foundation-145k & Macro-F1 & 0.571 & [-0.123, 1.265] & [0.009, 1.134] & Not established ($p_{\mathrm{Holm}}=0.839$) \\
+Agri-Foundation-145k & CHER & -0.183 & [-0.270, -0.096] & [-0.253, -0.112] & Not established ($p_{\mathrm{Holm}}=0.172$) \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

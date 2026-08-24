@@ -1,0 +1,6 @@
+Graphical abstract. Split-integrity-controlled data, paired Swin-S training,
+and locked-test hierarchy auditing show that predicted host supervision is not
+a dependable in-domain accuracy upgrade, whereas independently reliable host
+information can expose substantial cross-host error opportunity. CHER denotes
+cross-host error rate, HDR denotes head disagreement rate, and TCI denotes
+taxonomic consistency inference.

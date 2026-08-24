@@ -1,0 +1,28 @@
+24 August 2026
+
+Editor-in-Chief  
+*Information Processing in Agriculture*
+
+**Re: Submission of an Original Research Paper**
+
+Dear Editor-in-Chief,
+
+Please consider our manuscript, “**Auditing crop host supervision in Swin models for condition recognition across multiple crops: evidence from 90 controlled runs**,” for publication as an Original Research Paper in *Information Processing in Agriculture*.
+
+The manuscript examines a practical design question in image classification across multiple crops: whether an auxiliary crop host head improves recognition when the host label is already determined by the joint crop and condition class. We compare flat and dual Swin Small models pretrained on ImageNet across three fixed benchmarks containing 43, 88, and 215 joint classes. The evaluation includes 90 completed fine-tuning runs, uncertainty across paired seeds, a predeclared margin for practical equivalence, split controls based on source families or exact hashes, agreement-loss ablations, diagnostics of head disagreement and masking, a labeled-host oracle, and probability calibration fitted only on validation data.
+
+The study's main contribution is an auditable decision framework rather than a new backbone. Host supervision did not provide a dependable accuracy advantage. All primary outcomes were practically equivalent on the benchmark with 43 classes, and accuracy and cross-host error were equivalent on the benchmark with 88 classes. Predicted-host masking guaranteed taxonomic agreement but changed accuracy only marginally, whereas reliable labeled-host information revealed a larger recoverable error component on the benchmark with 215 classes. Temperature scaling provided the most consistent improvement in probability quality. These findings are relevant to agricultural information processing because they show how hierarchical model components can be evaluated before they are presented as performance improvements.
+
+The manuscript states the limits of its evidence, including evaluation within the source datasets, exact identity controls, local dataset derivatives, the supervised role of the COCO background class, and a synthetic development placeholder found in one class of the 215-class derivative. Code and derived evidence are available at <https://github.com/omair-khan2232/Auditing-crop-host-supervision>, including the final placeholder-class sensitivity output.
+
+[CONFIRM BEFORE SUBMISSION:] This work is original, has not been published previously, is not under consideration elsewhere, and has been approved by all authors. All authors have reviewed the manuscript, meet the journal's authorship criteria, and agree to be accountable for the work. The competing interest, funding, data availability, CRediT, and LLM use declarations will be completed and verified in the submission files.
+
+Thank you for considering the manuscript.
+
+Sincerely,
+
+Hee-Cheol Kim  
+Corresponding author  
+Department of Computer Science and Engineering, Inje University  
+Gimhae 50834, Republic of Korea  
+Email: heeki@inje.ac.kr

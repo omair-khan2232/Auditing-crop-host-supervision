@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "scope": "split-integrity-controlled in-domain evaluation",
+  "main_paper_runs": 90,
+  "epochs_per_run": 30,
+  "datasets": {
+    "NPD-Rice-COCO-43": {
+      "flat": 10,
+      "dual_no_penalty": 10,
+      "dual_mae": 5,
+      "dual_kl_q_to_ph": 5,
+      "total": 30
+    },
+    "MultiCrop-88": {
+      "flat": 10,
+      "dual_no_penalty": 10,
+      "dual_mae": 5,
+      "dual_kl_q_to_ph": 5,
+      "total": 30
+    },
+    "Agri-Foundation-145k": {
+      "flat": 10,
+      "dual_no_penalty": 10,
+      "dual_mae": 5,
+      "dual_kl_q_to_ph": 5,
+      "total": 30
+    }
+  },
+  "primary_paired_seeds": [2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035],
+  "penalty_matched_seeds": [2026, 2027, 2028, 2029, 2030],
+  "dual_head_runs_audited_for_hdr_tci": 60,
+  "primary_checkpoints_audited_for_calibration": 60,
+  "checks": {
+    "run_identity_and_completion": true,
+    "thirty_epoch_histories": true,
+    "split_manifest_identity": true,
+    "taxonomy_identity": true,
+    "large_artifact_hashes": true,
+    "paired_equivalence_inputs": true,
+    "calibration_inputs": true,
+    "hdr_tci_reconstruction": true,
+    "agri_foundation_penalty_reconstruction": true,
+    "equivalence_margin_sensitivity": true,
+    "cher_event_count_context": true,
+    "npd_family_balanced_sensitivity": true,
+    "agri_class_host_oracle_diagnostics": true
+  }
+}

@@ -1,0 +1,4 @@
+dataset,test_images,flat_mean_cross_host_events,dual_mean_cross_host_events,dual_minus_flat_mean_events,dual_to_flat_rate_ratio,events_at_0_10pp_margin,events_at_0_25pp_margin,events_at_0_50pp_margin
+MultiCrop-88,7769,26.1,23.8,-2.2999999999999994,0.9118773946360152,7.769,19.4225,38.845
+Agri-Foundation-145k,29041,964.5,911.4,-53.10000000000002,0.944945567651633,29.041,72.6025,145.205
+NPD-Rice-COCO-43,9333,3.499999999999998,2.1999999999999984,-1.2999999999999992,0.6285714285714286,9.333,23.3325,46.665

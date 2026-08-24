@@ -1,0 +1,24 @@
+\begin{table*}[htbp]
+\centering
+\caption{Positioning against representative crop-condition studies. ``NR''
+means that the cited article did not report the item as an explicit analysis;
+it does not establish that the underlying data or code lacked the property.}
+\label{tab:related-audit-comparison}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}L{0.11\textwidth}L{0.13\textwidth}L{0.17\textwidth}
+                    L{0.13\textwidth}L{0.07\textwidth}L{0.16\textwidth}
+                    L{0.11\textwidth}@{}}
+\toprule
+Study & Data setting & Hierarchy design & Identity control & Paired seeds & Equivalence / calibration & Constraint audit\\
+\midrule
+Mohanty et al.\ \cite{mohanty2016} & Controlled PlantVillage images & Joint crop and condition CNN & NR & NR & NR / NR & NR\\
+Picon et al.\ \cite{picon2019} & Multi-crop field images & Crop-metadata-conditioned CNN & NR & NR & NR / NR & NR\\
+Yao et al.\ \cite{yao2024} & Three benchmark datasets & Multi-output and stacked CNNs & NR & NR & NR / NR & NR\\
+Fu et al.\ \cite{fu2024} & Crop-pest image benchmark & Improved ViT classifier & NR & NR & NR / NR & NR\\
+Erg\"un and Okumu\c{s} \cite{ergun2026} & Three eggplant benchmarks & Learned CNN ensemble and TTA & NR & NR; CV & No / NR & NR\\
+Singh et al.\ \cite{singh2026} & PaddyDoctor rice images & Post-hoc agronomic rule validator & Perceptual-hash deduplication & NR & No / temperature scaling & Rule contradictions\\
+This study & Three fixed in-domain benchmarks & Auxiliary host head and masking & Original-family and/or exact-hash controls & 10 paired & TOST, Holm, margin sensitivity / scaling & HDR, TCI, oracle host\\
+\bottomrule
+\end{tabular}
+\end{table*}
